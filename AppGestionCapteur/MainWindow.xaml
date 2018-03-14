@@ -1,0 +1,136 @@
+﻿<Window x:Class="AppGestionCapteur.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"       
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:AppGestionCapteur"
+        mc:Ignorable="d"
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf"
+        
+        xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters"
+        Title="" Height="600" Width="1005">
+    <Window.Resources>
+        <ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.GroupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Amber.Accent.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <Color x:Key="Accent100">#ffe57f</Color>
+            <Color x:Key="Accent100Foreground">#DD000000</Color>
+            <Color x:Key="Accent200">#ffd740</Color>
+            <Color x:Key="Accent200Foreground">#DD000000</Color>
+            <Color x:Key="Accent400">#ffc400</Color>
+            <Color x:Key="Accent400Foreground">#DD000000</Color>
+            <Color x:Key="Accent700">#ffab00</Color>
+            <Color x:Key="Accent700Foreground">#DD000000</Color>
+
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="{StaticResource Accent700}" po:Freeze="True" />
+            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="{StaticResource Accent700Foreground}" po:Freeze="True" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <materialDesign:ColorZone
+              Mode="Accent"
+              
+              Padding="16"
+              CornerRadius="3"
+              materialDesign:ShadowAssist.ShadowDepth="Depth3"
+              Margin="2">
+            <StackPanel
+                Orientation="Horizontal">
+                <ToggleButton
+                  Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                <TextBlock
+                  VerticalAlignment="Center"
+                  Margin="100
+                    0 0 0" Width="285"><Run Text="Application de Gestion de capteur"/></TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <Grid HorizontalAlignment="Left" Height="40" Margin="10,85,0,0" VerticalAlignment="Top" Width="978">
+            <!-- button to download the txt file-->
+            <Button
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100"
+            Click="Buttontxt_Click"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Margin="100,4,778,4">
+                TxT
+            </Button>
+
+            <!-- button to display the graph-->
+            <Button
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100"
+                Click="Buttongraph_Click"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Margin="355,4,523,4">
+                Graph
+            </Button>
+
+            <!-- button to display the table-->
+            <Button
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100"
+            Click="Buttondisplay_Click"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Margin="225,4,653,4">
+                Affiche
+            </Button>
+
+            <!-- button to export in csv-->
+            <Button
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100"
+            Click="Buttoncsv_Click"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Margin="490,4,388,4">
+                Csv
+            </Button>
+
+            <!-- button to export in pdf-->
+            <Button
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100"
+                Click="Buttonmail_Click"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Margin="620,4,258,4">
+                Pdf
+            </Button>
+
+            <!-- button to send email-->
+            <Button
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100"
+                Click="Buttonmail_Click"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Margin="760,4,118,4">
+                Email
+            </Button>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid Margin="40,200,553.4,25.4" >
+                <materialDesign:Card
+                materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                materialDesign:ShadowAssist.ShadowEdges="Bottom,Right"
+                Padding="32">
+                    Tableau
+                </materialDesign:Card>
+                <DataGrid Name="DataGridView1"  HorizontalAlignment="Left" Height="225" Margin="40,85,0,0" VerticalAlignment="Top" Width="315"/>
+            </Grid>
+            <Grid Margin="540,200,28.4,25.4" >
+                <materialDesign:Card
+                materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                materialDesign:ShadowAssist.ShadowEdges="Bottom,Right"
+                Padding="32">
+                    Grpah
+                </materialDesign:Card>
+                <DataGrid Name="DataGrid" HorizontalAlignment="Left" Height="230" Margin="25,85,0,0" VerticalAlignment="Top" Width="380">
+
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
